@@ -30,7 +30,7 @@ const SITE_CONFIG = {
   // stays in index.html so you can flip it back on any time, or you
   // can delete/comment out the <!-- PROMO BANNER --> block in
   // index.html by hand if you'd rather remove it outright.
-  SHOW_PROMO_BANNER: false,
+  SHOW_PROMO_BANNER: true,
   PROMO_BANNER_IMAGE: "assets/promo-banner.jpg",  // recommended wide image, e.g. 1600x500px
   PROMO_BANNER_ALT: "Featured announcement",
   PROMO_BANNER_LINK: "#contact",  // where clicking the banner goes; leave "" to make it non-clickable
