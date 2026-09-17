@@ -1,0 +1,11 @@
+{
+  "name": "Budh IoT Solutions",
+  "short_name": "Budh IoT",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0F0D",
+  "theme_color": "#0A0F0D",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

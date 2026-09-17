@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Project Catalog — Budh IoT Solutions</title>
+<meta name="description" content="Ready-to-build IoT project options for students, with tech stack and support included.">
+<meta name="robots" content="noindex, nofollow">
+<!--
+  NOTE: This page is intentionally NOT linked from index.html's nav or
+  footer, per your request to keep it separate from the main site.
+  It's a fully standalone HTML file — link to it (or embed it) however
+  you'd like, e.g. from a WhatsApp broadcast, a QR code on campus
+  posters, etc. "robots noindex" above keeps search engines from
+  listing it alongside your main company site; remove that tag if you
+  ever do want it publicly indexed.
+-->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/sections-1.css">
+<link rel="stylesheet" href="css/sections-2.css">
+<style>
+  .catalog-header { padding: 60px 0 20px; }
+  .catalog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .catalog-card { padding: 0; overflow: hidden; }
+  .catalog-media { height: 150px; background: linear-gradient(150deg, var(--surface-2), var(--bg-alt)); border-bottom: 1px solid var(--border); display:flex; align-items:center; justify-content:center; }
+  .catalog-media svg { width: 46px; height: 46px; stroke: var(--border-strong); fill: none; stroke-width: 1; }
+  .catalog-body { padding: 20px 22px 24px; }
+  .catalog-level { font-family: var(--font-mono); font-size: 10.5px; color: var(--green-bright); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 10px; display:block; }
+  .catalog-body h3 { font-size: 16px; margin-bottom: 8px; }
+  .catalog-body p { font-size: 13.5px; color: var(--text-muted); margin-bottom: 14px; }
+  .catalog-price { font-family: var(--font-mono); font-size: 13px; color: var(--text); margin-bottom: 14px; display:block; }
+  @media (max-width: 980px) { .catalog-grid { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 620px) { .catalog-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="assets/logo.svg" alt="Budh IoT Solutions logo">
+      <span class="brand-text">
+        <span class="brand-name">Budh IoT Solutions</span>
+        <span class="brand-tagline">Student Project Catalog</span>
+      </span>
+    </a>
+    <a class="btn btn-ghost" href="index.html">← Back to main site</a>
+  </div>
+</header>
+
+<main>
+  <section class="catalog-header">
+    <div class="wrap">
+      <p class="eyebrow">For students</p>
+      <h1 style="font-size:clamp(28px,3.6vw,42px); max-width:20ch;">Ready-to-build IoT project options</h1>
+      <p style="color:var(--text-muted); margin-top:16px; max-width:60ch;">
+        A starting list of project options with working code, circuit references and guidance support.
+        Reach out with your preferred option, your deadline, and any specific requirements from your
+        college/department.
+      </p>
+    </div>
+  </section>
+
+  <section style="padding-top:20px;">
+    <div class="wrap">
+      <div class="catalog-grid" id="catalogGrid"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap" style="text-align:center;">
+      <div class="card" style="padding:40px; max-width:640px; margin:0 auto;">
+        <h3 style="margin-bottom:10px;">Don't see what you need?</h3>
+        <p style="color:var(--text-muted); margin-bottom:22px;">We can scope a custom project to your syllabus, timeline and difficulty level.</p>
+        <a class="btn btn-primary" href="index.html#contact">Contact us</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-bottom" style="border-top:none; padding-top:0;">
+    <span>© 2026 Budh IoT Solutions.</span>
+    <a href="index.html">Back to main site</a>
+  </div>
+</footer>
+
+<script>
+  // Self-contained renderer — no dependency on main.js since this page
+  // intentionally stands apart from the main site.
+</script>
+<script src="data/catalog-projects.js"></script>
+<script>
+  const grid = document.getElementById("catalogGrid");
+  const fallbackIcon = '<svg viewBox="0 0 48 48"><rect x="14" y="14" width="20" height="20" rx="2"/><path d="M14 20H6M14 28H6M42 20h-8M42 28h-8M20 14V6M28 14V6M20 42v-8M28 42v-8"/></svg>';
+  if (grid && typeof CATALOG_PROJECTS !== "undefined") {
+    grid.innerHTML = CATALOG_PROJECTS.map(p => `
+      <article class="card catalog-card">
+        <div class="catalog-media">
+          ${p.image ? `<img src="${p.image}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">` : ""}
+          ${p.image ? `<div style="display:none;align-items:center;justify-content:center;width:100%;height:100%;">${fallbackIcon}</div>` : fallbackIcon}
+        </div>
+        <div class="catalog-body">
+          <span class="catalog-level">${p.level}</span>
+          <h3>${p.title}</h3>
+          <p>${p.description}</p>
+          <ul class="chip-list" style="margin-bottom:14px;">${p.techStack.map(t => `<li class="chip">${t}</li>`).join("")}</ul>
+          <span class="catalog-price">${typeof p.price === "number" ? "₹" + p.price : p.price}</span>
+          <a class="btn btn-ghost btn-block" href="index.html#contact">Enquire about this</a>
+        </div>
+      </article>`).join("");
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Budh IoT Solutions</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/layout.css">
+<style>
+  .legal-wrap { max-width: 720px; margin: 0 auto; padding: 70px 24px 100px; }
+  .legal-wrap h1 { font-size: clamp(26px,3.6vw,36px); margin-bottom: 20px; }
+  .legal-wrap h2 { font-size: 18px; margin: 30px 0 10px; }
+  .legal-wrap p, .legal-wrap li { color: var(--text-muted); margin-bottom: 12px; font-size: 15px; }
+  .legal-wrap ul { padding-left: 20px; list-style: disc; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="assets/logo.svg" alt="Budh IoT Solutions logo">
+      <span class="brand-text"><span class="brand-name">Budh IoT Solutions</span></span>
+    </a>
+    <a class="btn btn-ghost" href="index.html">← Back to main site</a>
+  </div>
+</header>
+
+<main class="legal-wrap">
+  <h1>Privacy Policy</h1>
+  <p><em>[Placeholder — this is a starting template, not legal advice. Have this reviewed once your business details and actual data practices are finalized.]</em></p>
+
+  <h2>What we collect</h2>
+  <p>When you submit the contact form or the "stay on our radar" form on this site, we collect the name, email and any message details you provide, in order to respond to your enquiry.</p>
+
+  <h2>Cookies</h2>
+  <p>This site uses a minimal cookie to remember your cookie preference. If you choose to watch an embedded YouTube video, YouTube (Google) may set its own cookies once you opt in — this only happens after you accept cookies.</p>
+
+  <h2>How we use your information</h2>
+  <ul>
+    <li>To respond to enquiries submitted through our contact forms.</li>
+    <li>To follow up with people who opt in through the "stay on our radar" form.</li>
+    <li>We do not sell your information to third parties.</li>
+  </ul>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy can be sent to <a href="#" data-site-email style="color:var(--green-bright);">hello@budhiotsolutions.com</a>.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-bottom" style="border-top:none; padding-top:0;">
+    <span>© 2026 Budh IoT Solutions.</span>
+    <a href="index.html">Back to main site</a>
+  </div>
+</footer>
+
+<script src="js/site-config.js"></script>
+<script>
+  document.querySelectorAll("[data-site-email]").forEach(el => {
+    const email = (typeof SITE_CONFIG !== "undefined" && SITE_CONFIG.EMAIL) || "hello@budhiotsolutions.com";
+    el.textContent = email;
+    if (el.tagName === "A") el.href = `mailto:${email}`;
+  });
+</script>
+</body>
+</html>

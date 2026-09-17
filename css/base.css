@@ -1,0 +1,117 @@
+/* ============================================================
+   BUDH IoT SOLUTIONS — DESIGN TOKENS
+   Edit colors/fonts here to reskin the whole site from one place.
+   ============================================================ */
+:root {
+  /* --- Surfaces --- */
+  --bg: #0A0F0D;
+  --bg-alt: #0D1512;
+  --surface: #121A17;
+  --surface-2: #17211D;
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.18);
+
+  /* --- Text --- */
+  --text: #F3F6F4;
+  --text-muted: #9FB0A8;
+  --text-faint: #66766E;
+
+  /* --- Brand green --- */
+  --green: #1FA97C;
+  --green-bright: #4FE3A6;
+  --green-deep: #0E6E4F;
+  --green-wash: rgba(31, 169, 124, 0.12);
+
+  /* --- Utility --- */
+  --white: #FFFFFF;
+  --danger: #E36A5C;
+
+  /* --- Type --- */
+  --font-display: 'Sora', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* --- Layout --- */
+  --wrap: 1180px;
+  --radius-sm: 6px;
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+img, svg { display: block; max-width: 100%; }
+button { font: inherit; cursor: pointer; }
+input, textarea, select { font: inherit; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.wrap {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  color: var(--green-bright);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.eyebrow::before {
+  content: '';
+  width: 16px;
+  height: 1px;
+  background: var(--green);
+}
+
+.section-head { max-width: 640px; margin-bottom: 44px; }
+.section-head h2 { font-size: clamp(26px, 3vw, 36px); }
+.section-head p { color: var(--text-muted); margin-top: 14px; font-size: 15.5px; }
+.section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+.section-head.center .eyebrow { justify-content: center; }
+.section-head.center .eyebrow::before { display: none; }
+
+section { padding: 96px 0; }
+
+/* focus states */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--green-bright);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
+
+@media (max-width: 720px) {
+  .wrap { padding: 0 20px; }
+  section { padding: 72px 0; }
+}

@@ -1,0 +1,200 @@
+/* ============================================================
+   HEADER / NAV
+   ============================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 15, 13, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 78px; gap: 24px; }
+
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-logo { width: 40px; height: 40px; flex-shrink: 0; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+.brand-name { font-family: var(--font-display); font-weight: 700; font-size: 15px; }
+.brand-tagline { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-muted); letter-spacing: 0.02em; }
+
+.site-nav { display: flex; align-items: center; gap: 30px; font-size: 14px; color: var(--text-muted); }
+.site-nav a { transition: color .15s ease; }
+.site-nav a:hover { color: var(--text); }
+
+.header-cta { display: flex; align-items: center; gap: 14px; }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 34px;
+  height: 34px;
+  background: transparent;
+  border: none;
+}
+.nav-toggle span { height: 1.5px; background: var(--text); border-radius: 2px; }
+
+@media (max-width: 900px) {
+  .site-nav {
+    position: absolute;
+    top: 78px; left: 0; right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 20px;
+    gap: 18px;
+    display: none;
+  }
+  .site-nav.is-open { display: flex; }
+  .header-cta .btn-ghost { display: none; }
+  .nav-toggle { display: flex; }
+}
+
+/* ============================================================
+   PROMO BANNER
+   ------------------------------------------------------------
+   Big top-of-page poster. Toggled on/off via JS (display) from
+   SHOW_PROMO_BANNER in js/site-config.js — see index.html/main.js.
+   ============================================================ */
+.promo-banner {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 5;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(150deg, var(--surface-2), var(--bg-alt));
+}
+.promo-banner img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
+}
+.promo-banner:hover img { transform: scale(1.02); }
+.promo-banner.no-link { cursor: default; }
+.promo-banner.no-link:hover img { transform: none; }
+.promo-banner-fallback {
+  position: absolute; inset: 0;
+  display: none;
+  align-items: center; justify-content: center;
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.6;
+  padding: 20px;
+}
+@media (max-width: 720px) {
+  .promo-banner { aspect-ratio: 3 / 2; }
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer { border-top: 1px solid var(--border); padding: 56px 0 32px; background: var(--bg-alt); }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+.footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.footer-brand .brand-logo { width: 32px; height: 32px; }
+.footer-brand span { font-family: var(--font-display); font-weight: 700; font-size: 15px; }
+.footer-col p { color: var(--text-muted); font-size: 14px; max-width: 32ch; }
+.footer-col h4 { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-faint); margin-bottom: 16px; }
+.footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+.footer-col a { color: var(--text-muted); font-size: 14px; transition: color .15s ease; }
+.footer-col a:hover { color: var(--green-bright); }
+
+.footer-social { display: flex; gap: 12px; margin-top: 4px; }
+.footer-social a {
+  width: 36px; height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color .15s ease, color .15s ease;
+}
+.footer-social a:hover { border-color: var(--green); color: var(--green-bright); }
+.footer-social svg { width: 16px; height: 16px; }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-faint);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-bottom a:hover { color: var(--green-bright); }
+.footer-legal { display: flex; gap: 20px; }
+
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   WHATSAPP FLOAT
+   ============================================================ */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 90;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transition: transform .15s ease;
+}
+.whatsapp-float:hover { transform: scale(1.06); }
+.whatsapp-float svg { width: 28px; height: 28px; fill: #fff; }
+
+/* ============================================================
+   COOKIE CONSENT BANNER
+   ============================================================ */
+.cookie-banner {
+  position: fixed;
+  left: 20px; right: 20px; bottom: 20px;
+  max-width: 620px;
+  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+  z-index: 200;
+  display: none;
+}
+.cookie-banner.is-visible { display: block; }
+.cookie-banner p { font-size: 13.5px; color: var(--text-muted); margin-bottom: 16px; }
+.cookie-banner p a { color: var(--green-bright); text-decoration: underline; }
+.cookie-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+.back-to-top {
+  position: fixed;
+  bottom: 24px; left: 24px;
+  z-index: 80;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .2s ease;
+}
+.back-to-top.is-visible { opacity: 1; pointer-events: auto; }
