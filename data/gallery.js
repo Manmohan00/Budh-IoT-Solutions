@@ -20,12 +20,12 @@
    ============================================================ */
 
 const GALLERY_IMAGES = [
-  { id: "g001", image: "assets/gallery/g01", alt: "Workshop session in progress" },
-  { id: "g002", image: "assets/gallery/g02", alt: "Prototype board close-up" },
-  { id: "g003", image: "assets/gallery/g03", alt: "Field deployment" },
-  { id: "g004", image: "assets/gallery/g04", alt: "Sensor assembly on the bench" },
-  { id: "g005", image: "assets/gallery/g05", alt: "Client site visit" },
-  { id: "g006", image: "assets/gallery/g06", alt: "Demo day with students" },
-  { id: "g007", image: "assets/gallery/g07", alt: "Enclosure and wiring detail" },
-  { id: "g008", image: "assets/gallery/g08", alt: "Testing under field conditions" }
+  { id: "g001", image: "assets/gallery/g01.jpg", alt: "Workshop session in progress" },
+  { id: "g002", image: "assets/gallery/g02.jpg", alt: "Prototype board close-up" },
+  { id: "g003", image: "assets/gallery/g03.jpg", alt: "Field deployment" },
+  { id: "g004", image: "assets/gallery/g04.jpg", alt: "Sensor assembly on the bench" },
+  { id: "g005", image: "assets/gallery/g05.jpg", alt: "Client site visit" },
+  { id: "g006", image: "assets/gallery/g06.jpg", alt: "Demo day with students" },
+  { id: "g007", image: "assets/gallery/g07.jpg", alt: "Enclosure and wiring detail" },
+  { id: "g008", image: "assets/gallery/g08.jpg", alt: "Testing under field conditions" }
 ];
