@@ -8,6 +8,16 @@
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // Hides every nav link matching `selector` (header nav items have no
+  // wrapping <li>; footer nav items do — hide the <li> there so no empty
+  // row is left behind in the list).
+  function hideNavLinks(selector) {
+    document.querySelectorAll(selector).forEach(link => {
+      const li = link.closest("li");
+      (li || link).style.display = "none";
+    });
+  }
+
   const ICONS = {
     star: '<svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.3 1.2 6.1L10 15.1l-5.4 3.1 1.2-6.1L1.3 7.8l6.1-.7z"/></svg>',
     play: '<svg viewBox="0 0 20 20"><path d="M6 4l10 6-10 6z"/></svg>',
@@ -18,6 +28,8 @@
     youtube: '<svg viewBox="0 0 24 24"><path d="M23 7.2s-.2-1.6-.9-2.3c-.9-.9-1.9-.9-2.4-1C16.4 3.6 12 3.6 12 3.6h0s-4.4 0-7.7.3c-.5.1-1.5.1-2.4 1C1.2 5.6 1 7.2 1 7.2S.8 9 .8 10.9v1.9c0 1.9.2 3.7.2 3.7s.2 1.6.9 2.3c.9.9 2 .9 2.5 1 1.8.2 7.6.3 7.6.3s4.4 0 7.7-.3c.5-.1 1.5-.1 2.4-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.7v-1.9c0-1.9-.2-3.7-.2-3.7zM9.7 14.9V8.7l6 3.1z"/></svg>',
     twitter: '<svg viewBox="0 0 24 24"><path d="M22 5.9c-.7.3-1.5.6-2.3.7.8-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 00-7 3.7A11.6 11.6 0 013 4.9a4.1 4.1 0 001.3 5.4c-.6 0-1.3-.2-1.8-.5v.1c0 2 1.4 3.6 3.3 4a4.1 4.1 0 01-1.9.1 4.1 4.1 0 003.8 2.8A8.2 8.2 0 012 18.4a11.6 11.6 0 006.3 1.8c7.5 0 11.7-6.3 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2.1z"/></svg>',
     github: '<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.1-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.7.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-4.9 0-1.1.4-2 1-2.6-.1-.3-.4-1.3.1-2.6 0 0 .8-.3 2.7 1a9.4 9.4 0 015 0c1.9-1.3 2.7-1 2.7-1 .5 1.3.2 2.3.1 2.6.6.6 1 1.5 1 2.6 0 3.8-2.4 4.6-4.6 4.9.4.3.7 1 .7 2v3c0 .3.2.6.7.5A10 10 0 0012 2z"/></svg>',
+    facebook: '<svg viewBox="0 0 24 24"><path d="M14 9h3V5.5h-3c-2.2 0-4 1.8-4 4V12H7.5v3.5H10V22h3.5v-6.5H16l.5-3.5h-3V9.5c0-.3.2-.5.5-.5z"/></svg>',
+    googleMaps: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>',
     mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
     phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 005 5L14 13l5 2v4a2 2 0 01-2 2C9.6 21 3 14.4 3 6a2 2 0 011-2z"/></svg>',
     pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>'
@@ -94,15 +106,27 @@
      WHATSAPP FLOAT
      ============================================================ */
   const waFloat = document.getElementById("whatsappFloat");
+  const waNum = (typeof SITE_CONFIG !== "undefined" && SITE_CONFIG.WHATSAPP_NUMBER) || "";
+  const waShow = (typeof SITE_CONFIG !== "undefined" && SITE_CONFIG.SHOW_WHATSAPP) && waNum.trim() !== "";
+  const waLink = `https://wa.me/${waNum}?text=${encodeURIComponent("Hi Budh IoT Solutions, I'd like to talk about a project.")}`;
+
   if (waFloat) {
-    const num = (typeof SITE_CONFIG !== "undefined" && SITE_CONFIG.WHATSAPP_NUMBER) || "";
-    const show = (typeof SITE_CONFIG !== "undefined" && SITE_CONFIG.SHOW_WHATSAPP) && num.trim() !== "";
-    if (show) {
-      waFloat.href = `https://wa.me/${num}?text=${encodeURIComponent("Hi Budh IoT Solutions, I'd like to talk about a project.")}`;
+    if (waShow) {
+      waFloat.href = waLink;
       waFloat.style.display = "flex";
     } else {
       waFloat.style.display = "none";
     }
+  }
+
+  // Contact-card WhatsApp line: once a number is actually configured,
+  // swap the "once enabled in site-config.js" placeholder for a real,
+  // clickable WhatsApp link instead — same condition as the float button.
+  const contactWhatsappText = document.getElementById("contactWhatsappText");
+  if (contactWhatsappText && waShow) {
+    contactWhatsappText.innerHTML =
+      `<a href="${waLink}" target="_blank" rel="noopener">Chat with us on WhatsApp</a>`;
+    contactWhatsappText.style.color = "";
   }
 
   /* ============================================================
@@ -132,20 +156,43 @@
   /* ============================================================
      FOOTER SOCIAL ICONS (config-driven)
      ============================================================ */
-  const socialWrap = document.getElementById("footerSocial");
-  if (socialWrap && typeof SITE_CONFIG !== "undefined") {
+  function renderSocialLinks(containerId) {
+    const wrap = document.getElementById(containerId);
+    if (!wrap || typeof SITE_CONFIG === "undefined") return;
     const links = SITE_CONFIG.SOCIAL || {};
-    const order = ["linkedin", "instagram", "youtube", "twitter", "github"];
+    const order = ["linkedin", "instagram", "facebook", "youtube", "twitter", "github", "googleMaps"];
     let html = "";
     order.forEach(key => {
-      const url = links[key];
-      if (url && url.trim() !== "") {
-        html += `<a href="${url}" target="_blank" rel="noopener" aria-label="${key}">${ICONS[key]}</a>`;
+      const entry = links[key];
+      if (entry && entry.show && entry.url && entry.url.trim() !== "") {
+        const label = key === "googleMaps" ? "Google Maps" : key;
+        html += `<a href="${entry.url}" target="_blank" rel="noopener" aria-label="${label}">${ICONS[key]}</a>`;
       }
     });
-    socialWrap.innerHTML = html;
-    socialWrap.style.display = html ? "flex" : "none";
+    wrap.innerHTML = html;
+    wrap.style.display = html ? "flex" : "none";
+    // In the Contact card, an icon-less "Follow us" row would look like a
+    // broken label — hide the whole row, not just the empty icon strip.
+    if (!html) {
+      const row = wrap.closest(".contact-row");
+      if (row) row.style.display = "none";
+    }
   }
+  renderSocialLinks("footerSocial");
+  renderSocialLinks("contactSocial");
+
+  // CSS hides the trailing divider on the LAST .contact-row via
+  // :last-child — but a hidden (display:none) "Follow us" row is still
+  // the last DOM child, so the row above it would otherwise keep a
+  // dangling divider with nothing after it. Move the "no divider"
+  // treatment to whichever row is actually last and visible.
+  document.querySelectorAll(".contact-info-card").forEach(card => {
+    const rows = Array.from(card.querySelectorAll(":scope > .contact-row"));
+    const visible = rows.filter(r => getComputedStyle(r).display !== "none");
+    rows.forEach(r => r.style.borderBottom = "");
+    const last = visible[visible.length - 1];
+    if (last) last.style.borderBottom = "none";
+  });
 
   /* ============================================================
      SCROLL REVEAL
@@ -169,246 +216,13 @@
   }
 
   /* ============================================================
-     PROJECTS: filter + paginate + render
-     ============================================================ */
-  const projectGrid = document.getElementById("projectGrid");
-  const projectFilters = document.getElementById("projectFilters");
-  const loadMoreBtn = document.getElementById("loadMoreBtn");
-
-  let activeFilter = "all";
-  let visibleCount = (typeof SITE_CONFIG !== "undefined" && SITE_CONFIG.PROJECTS_PER_PAGE) || 6;
-
-  function mediaBlock(project) {
-    const domainLabel = (typeof PROJECT_DOMAINS !== "undefined"
-      ? (PROJECT_DOMAINS.find(d => d.key === project.domain) || {}).label
-      : project.domain) || project.domain;
-
-    let inner = "";
-    if (project.image && project.image.trim() !== "") {
-      inner = `<img src="${project.image}" alt="${project.title}" loading="lazy"
-                 onerror="this.style.display='none'; this.parentElement.querySelector('.media-fallback').style.display='flex';">
-                <div class="media-fallback" style="display:none">${ICONS.chip}</div>`;
-    } else {
-      inner = `<div class="media-fallback">${ICONS.chip}</div>`;
-    }
-
-    let videoBtn = "";
-    if (project.youtubeId && project.youtubeId.trim() !== "") {
-      videoBtn = `<button class="project-video-btn" data-yt="${project.youtubeId}" data-title="${project.title}">
-                    ${ICONS.play}<span>Watch demo</span>
-                  </button>`;
-    }
-
-    return `<div class="project-media" data-media-root>
-              <span class="project-domain-tag">${domainLabel}</span>
-              ${inner}
-              ${videoBtn}
-            </div>`;
-  }
-
-  function renderProjectCard(project) {
-    const detailToggle = project.detail && project.detail.trim() !== ""
-      ? `<button class="project-toggle" data-detail-toggle>+ Read more</button>
-         <div class="project-detail">${project.detail}</div>`
-      : "";
-
-    return `
-      <article class="card project-card" data-domain="${project.domain}">
-        ${mediaBlock(project)}
-        <div class="project-body">
-          <div class="project-top">
-            <h3>${project.title}</h3>
-            <span class="project-year">${project.year}</span>
-          </div>
-          <p class="project-summary">${project.tagline}</p>
-          <ul class="chip-list">${project.techStack.map(t => `<li class="chip">${t}</li>`).join("")}</ul>
-          ${detailToggle}
-        </div>
-      </article>`;
-  }
-
-  function getFilteredProjects() {
-    if (typeof PROJECTS === "undefined") return [];
-    if (activeFilter === "all") return PROJECTS;
-    return PROJECTS.filter(p => p.domain === activeFilter);
-  }
-
-  function renderProjects() {
-    if (!projectGrid) return;
-    const filtered = getFilteredProjects();
-    const slice = filtered.slice(0, visibleCount);
-
-    if (slice.length === 0) {
-      projectGrid.innerHTML = `<div class="project-empty">No projects in this category yet — check back soon.</div>`;
-      loadMoreBtn && (loadMoreBtn.style.display = "none");
-      return;
-    }
-
-    projectGrid.innerHTML = slice.map(renderProjectCard).join("");
-    initReveal("#projectGrid .project-card");
-    wireProjectCardEvents();
-
-    if (loadMoreBtn) {
-      loadMoreBtn.style.display = filtered.length > slice.length ? "inline-flex" : "none";
-    }
-  }
-
-  function wireProjectCardEvents() {
-    // read-more toggles
-    projectGrid.querySelectorAll("[data-detail-toggle]").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const detail = btn.nextElementSibling;
-        const open = detail.classList.toggle("is-open");
-        btn.textContent = open ? "− Show less" : "+ Read more";
-      });
-    });
-
-    // video play buttons, gated by cookie consent
-    projectGrid.querySelectorAll(".project-video-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const ytId = btn.getAttribute("data-yt");
-        const title = btn.getAttribute("data-title");
-        const mediaRoot = btn.closest("[data-media-root]");
-
-        if (!hasVideoConsent()) {
-          mediaRoot.innerHTML = `
-            <div class="video-consent-gate">
-              <p>YouTube videos load third-party cookies.<br>Please accept cookies to watch.</p>
-              <button class="btn btn-ghost btn-sm" data-open-cookie>Review cookie settings</button>
-            </div>`;
-          const openBtn = mediaRoot.querySelector("[data-open-cookie]");
-          openBtn && openBtn.addEventListener("click", () => {
-            cookieBanner && cookieBanner.classList.add("is-visible");
-          });
-          return;
-        }
-
-        // Passing the page's own origin helps YouTube's player validate the
-        // embed correctly once this site is served over http(s) — e.g. on
-        // GitHub Pages. It has no effect (and can't) when testing via a
-        // file:// URL, since local files don't have a real web origin —
-        // that's a browser/YouTube limitation, not something this code can
-        // work around. See README.md for how to test video playback locally.
-        const originParam = (window.location.origin && window.location.origin !== "null")
-          ? `&origin=${encodeURIComponent(window.location.origin)}`
-          : "";
-
-        mediaRoot.innerHTML = `
-          <div class="project-video-embed">
-            <iframe src="https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0${originParam}"
-              title="${title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-          </div>`;
-      });
-    });
-  }
-
-  if (projectFilters && typeof PROJECT_DOMAINS !== "undefined") {
-    projectFilters.innerHTML = PROJECT_DOMAINS.map((d, i) =>
-      `<button class="filter-btn ${i === 0 ? "is-active" : ""}" data-filter="${d.key}">${d.label}</button>`
-    ).join("");
-
-    projectFilters.querySelectorAll(".filter-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        projectFilters.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("is-active"));
-        btn.classList.add("is-active");
-        activeFilter = btn.getAttribute("data-filter");
-        visibleCount = (typeof SITE_CONFIG !== "undefined" && SITE_CONFIG.PROJECTS_PER_PAGE) || 6;
-        renderProjects();
-      });
-    });
-  }
-
-  if (loadMoreBtn) {
-    loadMoreBtn.addEventListener("click", () => {
-      visibleCount += (typeof SITE_CONFIG !== "undefined" && SITE_CONFIG.PROJECTS_PER_PAGE) || 6;
-      renderProjects();
-    });
-  }
-
-  renderProjects();
-
-  /* ============================================================
-     WORK GALLERY — small, plain, auto-scrolling image strip (no
-     captions, no click interactions — a quick visual proof-of-work
-     break above Reviews). Same continuous-scroll technique as the
-     Reviews row below: duplicate the set, nudge scrollLeft forward,
-     pause on hover/touch, wrap seamlessly.
-     ============================================================ */
-  const galleryStripSection = document.getElementById("galleryStrip");
-  const galleryScroll = document.getElementById("galleryStripScroll");
-
-  function galleryTileHTML(g) {
-    if (g.image && g.image.trim() !== "") {
-      return `<div class="gallery-tile">
-                <img src="${g.image}" alt="${g.alt || ""}" loading="lazy"
-                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <div class="gallery-tile-fallback" style="display:none">${ICONS.chip}</div>
-              </div>`;
-    }
-    return `<div class="gallery-tile"><div class="gallery-tile-fallback">${ICONS.chip}</div></div>`;
-  }
-
-  if (galleryScroll && galleryStripSection) {
-    const showGallery = typeof SITE_CONFIG === "undefined" || SITE_CONFIG.SHOW_WORK_GALLERY !== false;
-    if (showGallery && typeof GALLERY_IMAGES !== "undefined" && GALLERY_IMAGES.length) {
-      const setHTML = GALLERY_IMAGES.map(galleryTileHTML).join("");
-
-      if (reduceMotion) {
-        galleryScroll.innerHTML = setHTML;
-      } else {
-        galleryScroll.innerHTML = setHTML + setHTML;
-        let copies = 2;
-
-        requestAnimationFrame(() => {
-          let oneSetWidth = galleryScroll.scrollWidth / copies;
-          let maxScroll = galleryScroll.scrollWidth - galleryScroll.clientWidth;
-          let guard = 0;
-          while (maxScroll < oneSetWidth && guard < 8) {
-            copies += 1;
-            galleryScroll.insertAdjacentHTML("beforeend", setHTML);
-            oneSetWidth = galleryScroll.scrollWidth / copies;
-            maxScroll = galleryScroll.scrollWidth - galleryScroll.clientWidth;
-            guard += 1;
-          }
-
-          let hovered = false;
-          let lastTime = null;
-          const pxPerSecond = 26;
-
-          function tick(timestamp) {
-            if (lastTime === null) lastTime = timestamp;
-            const dt = (timestamp - lastTime) / 1000;
-            lastTime = timestamp;
-
-            if (!hovered) {
-              galleryScroll.scrollLeft += pxPerSecond * dt;
-              if (galleryScroll.scrollLeft >= oneSetWidth) {
-                galleryScroll.scrollLeft -= oneSetWidth;
-              }
-            }
-            requestAnimationFrame(tick);
-          }
-          requestAnimationFrame(tick);
-
-          galleryScroll.addEventListener("mouseenter", () => { hovered = true; });
-          galleryScroll.addEventListener("mouseleave", () => { hovered = false; });
-          galleryScroll.addEventListener("touchstart", () => { hovered = true; }, { passive: true });
-          galleryScroll.addEventListener("touchend", () => { hovered = false; });
-        });
-      }
-    } else {
-      galleryStripSection.style.display = "none";
-    }
-  }
-
-  /* ============================================================
      REVIEWS — horizontal scroll row of cards (drag/swipe/scroll).
      "Read more" appears only when a review is actually long enough
      to need it.
      ============================================================ */
   const reviewScroll = document.getElementById("reviewScroll");
   const reviewsSection = document.getElementById("reviewsSection");
+  const reviewsOuter = document.getElementById("reviews");
 
   function starRow(rating) {
     let html = "";
@@ -528,7 +342,11 @@
     }
 
     if (reviewsSection && !SITE_CONFIG.SHOW_EMBEDDED_REVIEWS) {
-      reviewsSection.style.display = "none";
+      // Hide the whole <section> (not just the inner wrap) — otherwise
+      // the section's own top/bottom padding is left behind as a big
+      // blank gap even with no visible content inside it.
+      (reviewsOuter || reviewsSection).style.display = "none";
+      hideNavLinks(".nav-reviews-link");
     }
   }
 
@@ -537,12 +355,15 @@
      BLOG (toggle + render)
      ============================================================ */
   const blogSection = document.getElementById("blogSection");
+  const blogOuter = document.getElementById("blog");
   const blogGrid = document.getElementById("blogGrid");
-  const navBlogLink = document.getElementById("navBlogLink");
 
   if (typeof SITE_CONFIG !== "undefined" && !SITE_CONFIG.SHOW_BLOG) {
-    blogSection && (blogSection.style.display = "none");
-    navBlogLink && (navBlogLink.style.display = "none");
+    // Hide the whole <section>, not just the inner wrap — same reasoning
+    // as the reviews section above (section-level padding otherwise
+    // survives as a blank gap).
+    (blogOuter || blogSection) && ((blogOuter || blogSection).style.display = "none");
+    hideNavLinks(".nav-blog-link");
   } else if (blogGrid && typeof BLOG_POSTS !== "undefined") {
     const fmt = d => new Date(d).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
     blogGrid.innerHTML = BLOG_POSTS.map(p => `
@@ -559,17 +380,9 @@
   }
 
   /* ============================================================
-     COURSES SERVICE CARD TOGGLE
-     ============================================================ */
-  const coursesCard = document.getElementById("coursesServiceCard");
-  if (coursesCard && typeof SITE_CONFIG !== "undefined" && !SITE_CONFIG.SHOW_COURSES_SERVICE) {
-    coursesCard.style.display = "none";
-  }
-
-  /* ============================================================
      GENERAL REVEAL for static sections
      ============================================================ */
-  initReveal(".process-step, .service-card, .audience-card, .impact-stat, .impact-panel, .section-head, .interest-strip");
+  initReveal(".process-step, .pillar-card, .section-head, .interest-strip");
 
   /* ============================================================
      CONTACT EMAIL PLACEHOLDER FILL-IN

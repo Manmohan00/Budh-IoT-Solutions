@@ -4,23 +4,23 @@
    ============================================================ */
 :root {
   /* --- Surfaces --- */
-  --bg: #0A0F0D;
-  --bg-alt: #0D1512;
-  --surface: #121A17;
-  --surface-2: #17211D;
-  --border: rgba(255, 255, 255, 0.09);
-  --border-strong: rgba(255, 255, 255, 0.18);
+  --bg: #FFFFFF;
+  --bg-alt: #F3F6F4;
+  --surface: #FFFFFF;
+  --surface-2: #EEF2EF;
+  --border: rgba(14, 21, 18, 0.10);
+  --border-strong: rgba(14, 21, 18, 0.20);
 
   /* --- Text --- */
-  --text: #F3F6F4;
-  --text-muted: #9FB0A8;
-  --text-faint: #66766E;
+  --text: #121A17;
+  --text-muted: #556059;
+  --text-faint: #8B968F;
 
   /* --- Brand green --- */
   --green: #1FA97C;
-  --green-bright: #4FE3A6;
+  --green-bright: #0E8F67;
   --green-deep: #0E6E4F;
-  --green-wash: rgba(31, 169, 124, 0.12);
+  --green-wash: rgba(31, 169, 124, 0.09);
 
   /* --- Utility --- */
   --white: #FFFFFF;

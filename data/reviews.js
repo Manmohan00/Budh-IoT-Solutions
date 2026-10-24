@@ -14,7 +14,7 @@ const REVIEWS = [
     name: "Placeholder Name",
     role: "Role, Organization",
     rating: 5,
-    text: "Replace this with a real client or workshop-attendee review once you have one collected. Keep it short and specific about the outcome.Replace this with a real client or workshop-attendee review once you have one collected. Keep it short and specific about the outcome.",
+    text: "Replace this with a real client or workshop-attendee review once you have one collected. Keep it short and specific about the outcome.Replace this with a real review once you have one collected. Keep it short and specific about the outcome.",
     initials: "PN"
   },
   {

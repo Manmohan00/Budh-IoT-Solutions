@@ -19,7 +19,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="favicon.svg">
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0A0F0D">
+<meta name="theme-color" content="#FFFFFF">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,7 +50,7 @@
 <header class="site-header" id="top">
   <div class="wrap header-inner">
     <a class="brand" href="#top">
-      <img class="brand-logo" src="assets/logo.svg" alt="Budh IoT Solutions logo">
+      <img class="brand-logo" src="assets/logo.png" alt="Budh IoT Solutions logo">
       <span class="brand-text">
         <span class="brand-name">Budh IoT Solutions</span>
         <span class="brand-tagline">Ideas, engineered.</span>
@@ -60,10 +60,8 @@
     <nav class="site-nav" id="siteNav">
       <a href="#about">About</a>
       <a href="#services">Services</a>
-      <a href="#work">Work</a>
-      <a href="#impact">Impact</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#blog" id="navBlogLink">Blog</a>
+      <a href="#reviews" class="nav-reviews-link">Reviews</a>
+      <a href="#blog" class="nav-blog-link">Blog</a>
       <a href="#contact">Contact</a>
     </nav>
 
@@ -77,7 +75,7 @@
 </header>
 
 <!-- ============ PROMO BANNER ============
-     Big top poster for promoting something time-limited (an offer, an
+     Big top-of-page poster for promoting something time-limited (an offer, an
      event, enrollment for a workshop batch, etc.).
      Toggle it with SHOW_PROMO_BANNER in js/site-config.js — that's
      the easiest way to switch it on/off. If you'd rather remove it
@@ -102,24 +100,18 @@
         <p class="eyebrow">Custom IoT Development Studio</p>
         <h1>Bring us the problem.<br>We'll build the <span class="accent">thing.</span></h1>
         <p class="hero-sub">
-          Budh IoT Solutions designs and builds custom IoT systems for real-world problems —
-          across homes, industry, healthcare, hospitality, education and government. If it can
-          sense, connect or automate, we can figure out how to make it work.
+          Budh IoT Solutions designs and builds custom IoT systems — from hands-on STEM and IoT
+          education for schools and colleges, to bringing scale models alive with lighting and
+          automation, to rapid prototyping for whatever IoT idea you're chasing next.
         </p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#contact">Start a conversation</a>
-          <a class="btn btn-ghost" href="#work">See our work</a>
+          <a class="btn btn-ghost" href="#services">What we do</a>
         </div>
-
-        <dl class="hero-stats">
-          <div><dt>Projects executed</dt><dd>[Add count]+</dd></div>
-          <div><dt>Workshops conducted</dt><dd>[Add count]+</dd></div>
-          <div><dt>Domains served</dt><dd>6+</dd></div>
-        </dl>
       </div>
 
       <div class="capability-web" aria-hidden="true">
-        <svg class="web-svg" viewBox="0 0 520 380" xmlns="http://www.w3.org/2000/svg">
+        <svg class="web-svg" viewBox="0 0 520 400" xmlns="http://www.w3.org/2000/svg">
           <line class="trace" x1="260" y1="190" x2="260" y2="60"/>
           <line class="trace" x1="260" y1="190" x2="375" y2="127"/>
           <line class="trace" x1="260" y1="190" x2="375" y2="253"/>
@@ -137,7 +129,7 @@
           <g class="leaf-node pulse" transform="translate(260,40)">
             <circle class="ring" r="22"/>
             <circle r="26"/>
-            <path class="leaf-icon" d="M-9,3 L0,-7 L9,3 M-6,3 L-6,9 L6,9 L6,3"/>
+            <path class="leaf-icon" fill="none" d="M-9,3 L0,-7 L9,3 M-6,3 L-6,9 L6,9 L6,3"/>
             <text class="leaf-label" y="42">Smart Home</text>
           </g>
 
@@ -145,7 +137,7 @@
           <g class="leaf-node pulse" transform="translate(390,115)">
             <circle class="ring" r="22"/>
             <circle r="26"/>
-            <path class="leaf-icon" d="M-7,0 L7,0 M0,-7 L0,7"/>
+            <path class="leaf-icon" fill="none" d="M-7,0 L7,0 M0,-7 L0,7"/>
             <text class="leaf-label" y="42">Healthcare</text>
           </g>
 
@@ -153,7 +145,7 @@
           <g class="leaf-node pulse" transform="translate(390,265)">
             <circle class="ring" r="22"/>
             <circle r="26"/>
-            <path class="leaf-icon" d="M-9,-2 L0,-7 L9,-2 L0,3 Z M-5,0 L-5,6 M5,0 L5,6"/>
+            <path class="leaf-icon" fill="none" d="M-9,-2 L0,-7 L9,-2 L0,3 Z M-5,0 L-5,6 M5,0 L5,6"/>
             <text class="leaf-label" y="42">Education</text>
           </g>
 
@@ -161,7 +153,7 @@
           <g class="leaf-node pulse" transform="translate(260,340)">
             <circle class="ring" r="22"/>
             <circle r="26"/>
-            <polygon class="leaf-icon" points="0,-9 7,-5 7,5 0,9 -7,5 -7,-5"/>
+            <polygon class="leaf-icon" fill="none" points="0,-9 7,-5 7,5 0,9 -7,5 -7,-5"/>
             <text class="leaf-label" y="42">Industrial</text>
           </g>
 
@@ -169,7 +161,7 @@
           <g class="leaf-node pulse" transform="translate(130,265)">
             <circle class="ring" r="22"/>
             <circle r="26"/>
-            <path class="leaf-icon" d="M-7,9 L-7,-8 L7,-8 L7,9 M-4,-5 L-1,-5 M2,-5 L5,-5 M-4,-1 L-1,-1 M2,-1 L5,-1"/>
+            <path class="leaf-icon" fill="none" d="M-7,9 L-7,-8 L7,-8 L7,9 M-4,-5 L-1,-5 M2,-5 L5,-5 M-4,-1 L-1,-1 M2,-1 L5,-1"/>
             <text class="leaf-label" y="42">Hospitality</text>
           </g>
 
@@ -177,7 +169,7 @@
           <g class="leaf-node pulse" transform="translate(130,115)">
             <circle class="ring" r="22"/>
             <circle r="26"/>
-            <path class="leaf-icon" d="M-8,8 L8,8 M-7,8 L-7,-2 M-3,8 L-3,-2 M3,8 L3,-2 M7,8 L7,-2 M-8,-2 L8,-2 L0,-8 Z"/>
+            <path class="leaf-icon" fill="none" d="M-8,8 L8,8 M-7,8 L-7,-2 M-3,8 L-3,-2 M3,8 L3,-2 M7,8 L7,-2 M-8,-2 L8,-2 L0,-8 Z"/>
             <text class="leaf-label" y="42">Government</text>
           </g>
         </svg>
@@ -222,6 +214,89 @@
     </div>
   </section>
 
+  <!-- ============ SERVICES ============
+       This is the centerpiece of the page on purpose — what we offer
+       matters more here than a log of past projects (that's what the
+       one-to-one conversation is for). Capability pillars, not
+       industry verticals: we're describing what we can build, not
+       who we've built it for before. -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What we offer</p>
+        <h2>We're not selling a product.<br>We're solving your problem.</h2>
+        <p>What we build, guaranteed — plus anything else IoT-shaped you bring us. Pricing is scoped per project; let's talk through what you need.</p>
+      </div>
+
+      <div class="pillar-grid">
+        <article class="card pillar-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 3L2 8l10 5 10-5-10-5zM2 15l10 5 10-5M2 11.5l10 5 10-5"/></svg></div>
+          <h3>STEM & IoT Education</h3>
+          <p>Hands-on IoT and STEM programs for schools, colleges and summer camps — the kind where every student leaves with something they actually built, not just slides and a certificate.</p>
+          <ul class="chip-list">
+            <li class="chip">School & college workshops</li>
+            <li class="chip">Summer camps</li>
+            <li class="chip">Internships</li>
+            <li class="chip">Structured courses</li>
+          </ul>
+        </article>
+
+        <article class="card pillar-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z"/><path d="M13 8l-4 5h3l-1 4 5-6h-3l1-3z"/></svg></div>
+          <h3>Smart Scale Models</h3>
+          <p>Bringing architectural, engineering and exhibition scale models to life — IoT-controlled lighting, motion and actuators that turn a static model into something that moves, lights up and responds.</p>
+          <ul class="chip-list">
+            <li class="chip">Automated lighting</li>
+            <li class="chip">Actuators & motion</li>
+            <li class="chip">Interactive triggers</li>
+          </ul>
+        </article>
+
+        <article class="card pillar-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 21a9 9 0 100-18 9 9 0 000 18z"/><path d="M12 12l4.2-4.2"/><path d="M12 7.5v1.2"/></svg></div>
+          <h3>Industrial Monitoring & Automation</h3>
+          <p>Already running on real production floors — counting output, tracking process parameters, flagging anomalies before they turn into downtime. We instrument equipment and processes you already have, not a replacement for them.</p>
+          <ul class="chip-list">
+            <li class="chip">Production & count monitoring</li>
+            <li class="chip">Process sensing</li>
+            <li class="chip">Predictive alerts</li>
+            <li class="chip">Retrofit automation</li>
+          </ul>
+        </article>
+
+        <article class="card pillar-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 9l1.5-5h15L21 9"/><path d="M4 9v10.5h16V9"/><path d="M9.5 19.5V13h5v6.5"/></svg></div>
+          <h3>Smart Retail & Space IoT</h3>
+          <p>Instrumented counters, showrooms and commercial spaces — footfall and occupancy sensing, smart displays, environment monitoring — fitted into a space that's already working without disrupting it.</p>
+          <ul class="chip-list">
+            <li class="chip">Footfall & occupancy sensing</li>
+            <li class="chip">Smart displays & shelving</li>
+            <li class="chip">Environment monitoring</li>
+          </ul>
+        </article>
+
+        <article class="card pillar-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 01-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 015.4-5.4l-3 3-2-2z"/></svg></div>
+          <h3>Rapid Prototyping & Product Development</h3>
+          <p>Got something IoT-shaped that doesn't fit a category yet? From a rough idea to a working prototype — sensors, connectivity, firmware, dashboards — this is how we find out what's possible before committing to a full build.</p>
+          <ul class="chip-list">
+            <li class="chip">Rapid prototyping</li>
+            <li class="chip">Feasibility & PoC</li>
+            <li class="chip">Full builds on request</li>
+          </ul>
+        </article>
+
+        <article class="card pillar-card pillar-cta">
+          <div>
+            <h3>Not sure where to start?</h3>
+            <p>Most engagements begin with a short call to understand what you're actually trying to solve — bring us the rough idea, we'll help shape it from there.</p>
+          </div>
+          <a class="btn btn-primary" href="#contact">Let's have a chat</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ ABOUT ============ -->
   <section class="about" id="about">
     <div class="wrap about-inner-grid">
@@ -256,157 +331,6 @@
           <span class="chip">Technical Training</span>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ============ SERVICES ============ -->
-  <section class="services" id="services">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">What we offer</p>
-        <h2>We're not selling a product.<br>We're solving your problem.</h2>
-        <p>Every engagement starts the same way — with your problem or idea, not our catalog. Pricing is scoped per project; let's talk through what you need.</p>
-      </div>
-
-      <div class="service-grid">
-        <article class="card service-card">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 00-3.6 10.8c.6.5 1 1.2 1 2.2h5.2c0-1 .4-1.7 1-2.2A6 6 0 0012 3z"/></svg></div>
-          <h3>Custom IoT Solutions</h3>
-          <p>Tell us the problem or the idea — we handle everything from feasibility to a working, field-ready system.</p>
-        </article>
-
-        <article class="card service-card">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 01-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 015.4-5.4l-3 3-2-2z"/></svg></div>
-          <h3>Rapid Prototyping & PoC</h3>
-          <p>Fast, working proof-of-concepts so you can validate an idea before committing to a full build.</p>
-        </article>
-
-        <article class="card service-card">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="8" r="3"/><path d="M2 20c0-3 2.5-5 6-5s6 2 6 5M12 20c0-2.5 2-4.5 5-4.5s5 2 5 4.5"/></svg></div>
-          <h3>Workshops & Corporate Training</h3>
-          <p>Hands-on IoT sessions for teams and organizations — practical, project-based, not just slides.</p>
-        </article>
-
-        <article class="card service-card">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 3L2 8l10 5 10-5-10-5zM2 15l10 5 10-5M2 11.5l10 5 10-5"/></svg></div>
-          <h3>College & Institution Programs</h3>
-          <p>Workshops, seminars, internships and curriculum support for engineering colleges and institutes.</p>
-        </article>
-
-        <article class="card service-card optional" id="coursesServiceCard">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M16 18l4-6-4-6M8 6l-4 6 4 6"/></svg></div>
-          <h3>IoT & Python Courses</h3>
-          <p>Structured courses for student groups covering IoT fundamentals and Python for embedded work.</p>
-        </article>
-
-        <article class="card service-card" style="display:flex; flex-direction:column; justify-content:center; background:var(--surface-2);">
-          <h3>Not sure where to start?</h3>
-          <p style="margin-bottom:18px;">Most engagements begin with a short call to understand what you're actually trying to solve.</p>
-          <a class="btn btn-ghost" href="#contact">Let's have a chat</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ WHO WE SERVE ============ -->
-  <section class="audience">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Who we serve</p>
-        <h2>Any industry with a problem IoT can solve.</h2>
-      </div>
-      <div class="audience-grid">
-        <div class="card audience-card">
-          <div class="audience-icon"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg></div>
-          <div><h4>Real Estate</h4><p>Smart building & automation</p></div>
-        </div>
-        <div class="card audience-card">
-          <div class="audience-icon"><svg viewBox="0 0 24 24"><path d="M4 21V9l8-6 8 6v12M9 21v-6h6v6"/></svg></div>
-          <div><h4>Hospitality</h4><p>Hotels & guest experience</p></div>
-        </div>
-        <div class="card audience-card">
-          <div class="audience-icon"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 6V4h10v2"/></svg></div>
-          <div><h4>Banking & Finance</h4><p>Secure access & monitoring</p></div>
-        </div>
-        <div class="card audience-card">
-          <div class="audience-icon"><svg viewBox="0 0 24 24"><path d="M12 2l9 5v10l-9 5-9-5V7z"/></svg></div>
-          <div><h4>Government & Public Sector</h4><p>Civic & infrastructure systems</p></div>
-        </div>
-        <div class="card audience-card">
-          <div class="audience-icon"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
-          <div><h4>Startups & Tech Companies</h4><p>Product & hardware R&D</p></div>
-        </div>
-        <div class="card audience-card">
-          <div class="audience-icon"><svg viewBox="0 0 24 24"><path d="M12 3L2 8l10 5 10-5-10-5zM2 15l10 5 10-5"/></svg></div>
-          <div><h4>Colleges & Institutions</h4><p>Workshops, training & internships</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PROJECTS ============ -->
-  <section class="work" id="work">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Selected work</p>
-        <h2>Problems we've been handed, and what we built.</h2>
-        <p>Sorted by what they solve, not who they were built for — a workshop build and a client deployment sit on equal footing here if they solved a real problem well.</p>
-      </div>
-
-      <div class="project-filters" id="projectFilters"></div>
-      <div class="project-grid" id="projectGrid"></div>
-      <div class="load-more-wrap">
-        <button class="btn btn-ghost" id="loadMoreBtn">Load more projects</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ IMPACT ============ -->
-  <section class="impact" id="impact">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Impact</p>
-        <h2>Problems solved, and people trained to solve their own.</h2>
-      </div>
-
-      <div class="impact-stats">
-        <div class="card impact-stat"><strong>[Add]+</strong><span>Projects Executed</span></div>
-        <div class="card impact-stat"><strong>[Add]+</strong><span>Workshops Conducted</span></div>
-        <div class="card impact-stat"><strong>[Add]+</strong><span>Students Trained</span></div>
-        <div class="card impact-stat"><strong>[Add]+</strong><span>Colleges Partnered</span></div>
-      </div>
-
-      <div class="impact-split">
-        <div class="card impact-panel">
-          <h3>Problems Solved</h3>
-          <p>A sample of the kind of impact behind the project list above — replace with your own specifics.</p>
-          <ul class="impact-list">
-            <li><svg viewBox="0 0 20 20"><path d="M4 10.5l3.5 3.5L16 5" fill="none" stroke="currentColor" stroke-width="2"/></svg>Reduced manual monitoring effort for a cold storage facility with an automated alert system.</li>
-            <li><svg viewBox="0 0 20 20"><path d="M4 10.5l3.5 3.5L16 5" fill="none" stroke="currentColor" stroke-width="2"/></svg>Cut water waste for a small farm through automated, sensor-triggered irrigation.</li>
-            <li><svg viewBox="0 0 20 20"><path d="M4 10.5l3.5 3.5L16 5" fill="none" stroke="currentColor" stroke-width="2"/></svg>Gave a hotel visibility into energy use it previously had no way to measure.</li>
-          </ul>
-        </div>
-        <div class="card impact-panel">
-          <h3>Training & Education Impact</h3>
-          <p>Workshops, lectures and internships conducted at colleges and institutes — building IoT skills beyond the classroom syllabus.</p>
-          <ul class="impact-list">
-            <li><svg viewBox="0 0 20 20"><path d="M4 10.5l3.5 3.5L16 5" fill="none" stroke="currentColor" stroke-width="2"/></svg>Hands-on IoT workshops for engineering students, from first sensor to working demo.</li>
-            <li><svg viewBox="0 0 20 20"><path d="M4 10.5l3.5 3.5L16 5" fill="none" stroke="currentColor" stroke-width="2"/></svg>Guest lectures on real-world IoT development and career paths.</li>
-            <li><svg viewBox="0 0 20 20"><path d="M4 10.5l3.5 3.5L16 5" fill="none" stroke="currentColor" stroke-width="2"/></svg>Internship mentoring for students building their own IoT projects.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ WORK GALLERY (small auto-scrolling image strip) ============
-       Plain visuals, no captions, no clicks — a quick, informal proof-of-work
-       strip. Images come from data/gallery.js; toggle with SHOW_WORK_GALLERY
-       in js/site-config.js. -->
-  <section class="gallery-strip" id="galleryStrip" data-section="gallery">
-    <div class="wrap">
-      <p class="eyebrow">Snapshots from the field</p>
-      <div class="gallery-strip-scroll" id="galleryStripScroll"></div>
     </div>
   </section>
 
@@ -453,7 +377,17 @@
           </div>
           <div class="contact-row">
             <div class="contact-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 005 5L14 13l5 2v4a2 2 0 01-2 2C9.6 21 3 14.4 3 6a2 2 0 011-2z"/></svg></div>
-            <div><h4>Call/Whatsapp</h4><p style="color:var(--text-muted)">+91 7756070589</p></div>
+            <div><h4>WhatsApp</h4><p id="contactWhatsappText" style="color:var(--text-muted)">Use the WhatsApp button in the corner, once enabled in site-config.js</p></div>
+          </div>
+          <!-- Follow us: driven by SOCIAL in js/site-config.js — each
+               platform has its own show/url toggle. This row auto-hides
+               if nothing is enabled. -->
+          <div class="contact-row">
+            <div class="contact-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="12" r="2.2"/><circle cx="18" cy="6" r="2.2"/><circle cx="18" cy="18" r="2.2"/><path d="M8 11l8-4M8 13l8 4"/></svg></div>
+            <div>
+              <h4>Find us online</h4>
+              <div class="footer-social" id="contactSocial" style="margin-top:6px;"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -468,7 +402,7 @@
     <div class="footer-grid">
       <div class="footer-col">
         <div class="footer-brand">
-          <img class="brand-logo" src="assets/logo.svg" alt="Budh IoT Solutions logo">
+          <img class="brand-logo" src="assets/logo.png" alt="Budh IoT Solutions logo">
           <span>Budh IoT Solutions</span>
         </div>
         <p>Custom IoT development, prototyping and training — from problem to working system.</p>
@@ -479,15 +413,13 @@
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#reviews" class="nav-reviews-link">Reviews</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>More</h4>
         <ul>
-          <li><a href="#impact">Impact</a></li>
-          <li><a href="#blog">Blog</a></li>
+          <li><a href="#blog" class="nav-blog-link">Blog</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -528,10 +460,8 @@
 </button>
 
 <script src="js/site-config.js"></script>
-<script src="data/projects.js"></script>
 <script src="data/reviews.js"></script>
 <script src="data/blogs.js"></script>
-<script src="data/gallery.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

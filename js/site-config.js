@@ -14,13 +14,11 @@ const SITE_CONFIG = {
   // floating WhatsApp button, even if SHOW_WHATSAPP is true.
   // Use full international format, no + or spaces, e.g. "919812345678"
   SHOW_WHATSAPP: true,
-  WHATSAPP_NUMBER: "7756070589",
+  WHATSAPP_NUMBER: "+917756070589",
 
   // ---- Section toggles ----
-  SHOW_BLOG: true,
-  SHOW_COURSES_SERVICE: true,     // the Python/IoT courses service card
-  SHOW_EMBEDDED_REVIEWS: true,    // reviews from data/reviews.js
-  SHOW_WORK_GALLERY: true,        // small auto-scrolling image strip from data/gallery.js
+  SHOW_BLOG: false,
+  SHOW_EMBEDDED_REVIEWS: false,    // reviews from data/reviews.js
 
   // ---- Promo banner ----
   // A big poster/banner image at the very top of the page, just under
@@ -46,15 +44,21 @@ const SITE_CONFIG = {
   // "email me directly" message instead of failing silently.
   FORM_ENDPOINT: "https://formspree.io/f/YOUR_FORM_ID",
 
-  // ---- Projects list pagination ----
-  PROJECTS_PER_PAGE: 6,
-
-  // ---- Social links (leave "" to hide that icon in the footer) ----
+  // ---- Social links ----
+  // Shown in the footer and in the Contact section. Each platform has its
+  // own on/off switch (`show`) plus its `url` — so you can paste a link in
+  // now and flip it on later, or turn one off temporarily without losing
+  // the URL. A platform only actually shows when BOTH show is true AND
+  // url is filled in.
   SOCIAL: {
-    linkedin: "",
-    instagram: "",
-    youtube: "",
-    twitter: "",
-    github: ""
+    linkedin:   { show: true,  url: "" },
+    instagram:  { show: true,  url: "" },
+    facebook:   { show: true,  url: "" },
+    youtube:    { show: true,  url: "" },
+    twitter:    { show: true,  url: "" },
+    github:     { show: false, url: "" },
+    // Google Maps / Google Business Profile listing — link to your
+    // location or "write a review" page.
+    googleMaps: { show: true,  url: "https://maps.app.goo.gl/pjEuvAZPejLh15Vn6" }
   }
 };
