@@ -51,7 +51,7 @@ const SITE_CONFIG = {
   // the URL. A platform only actually shows when BOTH show is true AND
   // url is filled in.
   SOCIAL: {
-    linkedin:   { show: true,  url: "" },
+    linkedin:   { show: true,  url: "https://www.linkedin.com/company/budh-iot-solutions/" },
     instagram:  { show: true,  url: "" },
     facebook:   { show: true,  url: "" },
     youtube:    { show: true,  url: "" },
