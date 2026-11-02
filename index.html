@@ -308,25 +308,31 @@
     </div>
   </section>
 
-  <!-- ============ ABOUT ============ -->
+  <!-- ============ ABOUT ============
+       Profile-card layout: a small circular photo at the top of a single
+       bordered card, with the bio and skill chips below it, rather than a
+       tall photo filling its own column. -->
   <section class="about" id="about">
-    <div class="wrap about-inner-grid">
-      <div>
-        <!--
-          Photo: place a file at assets/manmohan.jpg (square, 600x600px+
-          recommended). If the file isn't there yet, this box shows a
-          placeholder automatically — nothing looks broken either way.
-        -->
-        <div class="about-photo">
-          <img src="assets/manmohan.jpg" alt="Manmohan Rathi, Founder of Budh IoT Solutions"
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="about-photo-fallback">[ Your photo goes here ]<br>assets/manmohan.jpg</div>
-        </div>
-      </div>
-      <div>
+    <div class="wrap">
+      <div class="section-head center">
         <p class="eyebrow">About</p>
         <h2>Manmohan Rathi, Founder</h2>
-        <p style="color:var(--text-muted); margin-top:18px; max-width:60ch;">
+      </div>
+
+      <div class="card about-card">
+        <!--
+          Photo: place a file at assets/manmohan.jpg (square photo works
+          best for a circular crop). If the file isn't there yet, this
+          shows a circle with initials instead — nothing looks broken
+          either way.
+        -->
+        <div class="about-photo-circle">
+          <img src="assets/manmohan.jpg" alt="Manmohan Rathi, Founder of Budh IoT Solutions"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="about-photo-circle-fallback">MR</div>
+        </div>
+
+        <p style="color:var(--text-muted);">
           Manmohan's path into IoT started almost by accident, when a final-year project he was
           challenged to build during his diploma didn't go as planned. That unfinished project is
           what hooked him. From there, he taught himself IoT the hard way: learning a concept and
@@ -336,7 +342,7 @@
           low-power design, battery life, and building products that actually hold up physically
           in the real world.
         </p>
-        <p style="color:var(--text-muted); margin-top:14px; max-width:60ch;">
+        <p style="color:var(--text-muted); margin-top:14px;">
           Building is where most of his time goes, and it spans a wide range of settings:
           production-line monitoring on factory floors, systems tied to public infrastructure, and
           projects for major commercial and industry clients. He's hands-on through the entire
@@ -345,7 +351,7 @@
           after deployment: a system that's still running cleanly months later, not a demo that
           only worked once in front of a client.
         </p>
-        <p style="color:var(--text-muted); margin-top:14px; max-width:60ch;">
+        <p style="color:var(--text-muted); margin-top:14px;">
           Alongside the building, he's run workshops and internships since his own college days,
           for 1000+ students so far, covering everything from curriculum design to hands-on
           delivery to final project evaluation. Budh IoT Solutions brings both sides together: a
