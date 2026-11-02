@@ -12,7 +12,7 @@
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 78px; gap: 24px; }
 
 .brand { display: flex; align-items: center; gap: 12px; }
-.brand-logo { width: 40px; height: 40px; flex-shrink: 0; }
+.brand-logo { width: 40px; height: 40px; flex-shrink: 0; object-fit: contain; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.2; }
 .brand-name { font-family: var(--font-display); font-weight: 700; font-size: 15px; }
 .brand-tagline { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-muted); letter-spacing: 0.02em; }
@@ -103,7 +103,7 @@
   border-bottom: 1px solid var(--border);
 }
 .footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-.footer-brand .brand-logo { width: 32px; height: 32px; }
+.footer-brand .brand-logo { width: 32px; height: 32px; object-fit: contain; }
 .footer-brand span { font-family: var(--font-display); font-weight: 700; font-size: 15px; }
 .footer-col p { color: var(--text-muted); font-size: 14px; max-width: 32ch; }
 .footer-col h4 { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-faint); margin-bottom: 16px; }
